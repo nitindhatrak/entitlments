@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { AppService } from '../services/app.service';
 
 
@@ -8,6 +8,9 @@ import { AppService } from '../services/app.service';
   styleUrls: ['./entitlements.component.scss']
 })
 export class EntitlementsComponent implements OnInit {
+
+  @Output()
+  entitlementViewEmitter = new EventEmitter();
 
   entitlements = [
     {app: 'TRHUB', domain: 'SPRS-TH', roles: ['READ-ONLY']},
@@ -27,5 +30,9 @@ export class EntitlementsComponent implements OnInit {
 
   editClick(evt): void {
     alert(evt);
+  }
+
+  onNewClicked(): void {
+    this.entitlementViewEmitter.emit({isNew: true});
   }
 }

@@ -1,28 +1,35 @@
 <div class="container">
-  <app-search (soeidChangedEmitter)="onSoeidChanged($event)"></app-search>
+  <div *ngIf="mainView === true">
+    <app-search (soeidChangedEmitter)="onSoeidChanged($event)"></app-search>
 
-  <div *ngIf="hasEntitlements">
+    <div *ngIf="hasEntitlements">
 
-    <div class="btn-group btn-group-toggle">
-      <button (click)="onEntitlementsClicked()">Entitlements</button>
-      <button (click)="onApprovalsClicked()">Approvals</button>
+      <div class="btn-group btn-group-toggle">
+        <button (click)="onEntitlementsClicked()">Entitlements</button>
+        <button (click)="onApprovalsClicked()">Approvals</button>
+      </div>
+      <div *ngIf="currentTab === 1">
+        <app-entitlements (entitlementViewEmitter)="changeView($event)"></app-entitlements>
+      </div>
+      <div *ngIf="currentTab === 2">
+        <app-approvals></app-approvals>
+      </div>
     </div>
-    <div *ngIf="currentTab === 1">
-      <app-entitlements></app-entitlements>
-    </div>
-    <div *ngIf="currentTab === 2">
-      <app-approvals></app-approvals>
+    <div *ngIf="!hasEntitlements">
+      <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">User does not have admin entitlements</h5>
+        </div>
+      </div>
     </div>
   </div>
-  <div *ngIf="!hasEntitlements">
-    <div class="card text-center">
-      <div class="card-header">
-        Featured
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">User does not have admin entitlements</h5>
-      </div>
-    </div>
+  <div *ngIf="mainView === false">
+
+    <app-add-entitlements></app-add-entitlements>
+
   </div>
 
 </div>

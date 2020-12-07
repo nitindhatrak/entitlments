@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'entitlements';
   currentTab = 1;
   hasEntitlements = true;
+  mainView = true;
 
 
   constructor(private service: AppService) {
@@ -28,6 +29,10 @@ export class AppComponent {
 
   onApprovalsClicked(): void {
     this.currentTab = 2;
+  }
+
+  changeView(evt): void {
+    this.mainView = false;
   }
 
 

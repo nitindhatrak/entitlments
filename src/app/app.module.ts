@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntitlementsComponent } from './entitlements/entitlements.component';
 import { ApprovalsComponent } from './approvals/approvals.component';
+import { AddEntitlementsComponent } from './add-entitlements/add-entitlements.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     EntitlementsComponent,
-    ApprovalsComponent
+    ApprovalsComponent,
+    AddEntitlementsComponent
   ],
   imports: [
     BrowserModule,

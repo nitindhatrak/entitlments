@@ -1,0 +1,43 @@
+
+
+<form class="form-inline">
+  <div class="form-group mb-2">
+    <label>Select Application</label>
+  </div>
+  <select class="form-control form-control-lg" (change)="onAppChange($event)">
+    <option></option>
+    <option>Large select</option>
+    <option>Large select</option>
+    <option>Large select</option>
+    <option>Large select</option>
+  </select>
+</form>
+
+<form class="form-inline" *ngIf="showDomain">
+  <div class="form-group mb-2">
+    <label>Select Domain</label>
+  </div>
+  <select class="form-control form-control-lg" (change)="onDomainChange($event)">
+    <option></option>
+    <option>Large 1</option>
+    <option>Large 2</option>
+    <option>Large 3</option>
+    <option>Large 4</option>
+  </select>
+</form>
+
+<form class="form-inline" *ngIf="showRole">
+  <div class="form-group mb-2">
+    <label>Select Role</label>
+  </div>
+  <select class="form-control form-control-lg" (change)="onRoleChange($event)">
+    <option></option>
+    <option>Large 1</option>
+    <option>Large 2</option>
+    <option>Large 3</option>
+    <option>Large 4</option>
+  </select>
+</form>
+
+
+<button (click)="onSubmit()" *ngIf="showSubmit">Submit</button>
