@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Application</th>
+    <th scope="col">Domain</th>
+    <th scope="col">Role</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ent of entitlements; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ent.app}}</td>
+    <td>{{ ent.domain}}</td>
+    <td>{{ ent.roles }}</td>
+    <td>
+      <button class="btn btn-primary" (click)="approveClick(ent)">Edit</button>
+      <button class="btn btn-primary" (click)="rejectClick(ent)">Reject</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
